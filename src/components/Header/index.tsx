@@ -13,6 +13,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import { useCountryContext } from '../../context/CountryInfo';
 import { useEffect, useState } from 'react';
+import style from "./index.module.css";
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -107,12 +108,12 @@ export default function SearchAppBar() {
         </Toolbar>
       </AppBar>
       {filteredCountryData && (
-        <div style={{ margin: "auto 20px" }}>
+        <div className={style.herodiv}>
           <Grid container spacing={2}>
             {filteredCountryData.map((country, index) => (
               <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                 <Card style={{ height: '50vh' }}>
-                  <img src={country.flags.png} alt={`${country.name.common} flags`} style={{ objectFit: 'cover', width: '100%', height: '25vh' }} />
+                  <img src={country.flags.png} alt={`${country.name.common} flags`} className={style.img} />
                   <CardContent>
                     <Link href={country.maps.googleMaps} style={{ textDecoration: 'none', fontSize: '22px' }} color="text.secondary" >
                       {country.name.common}
