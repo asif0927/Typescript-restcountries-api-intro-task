@@ -61,9 +61,6 @@ export default function SearchAppBar() {
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    const filteredData = filteredCountryData?.filter((country) =>
-      country.name.common.toLowerCase().includes(searchValue.toLowerCase())
-    );
     setSearchQuery(searchValue);
   }, [searchValue, setSearchQuery, filteredCountryData]);  
 
